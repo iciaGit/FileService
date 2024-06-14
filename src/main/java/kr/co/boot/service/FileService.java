@@ -14,6 +14,7 @@ import java.util.UUID;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -27,7 +28,7 @@ public class FileService {
 	
 	Logger logger = LoggerFactory.getLogger(getClass());
 	
-	private String root = "C:/upload";
+	@Value("${spring.servlet.multipart.location}") String root;
 
 	public void upload(MultipartFile file) {
 		// 1. 파일명 추출
