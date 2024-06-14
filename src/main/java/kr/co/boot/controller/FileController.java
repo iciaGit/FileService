@@ -31,9 +31,7 @@ public class FileController {
 	
 	@Autowired FileService service;
 
-	
-	// <Context docBase="C:/upload" path="/file"/>
-	// /file 이라는 요청이 오면 C:/upload 로 연결 해라
+
 	@GetMapping(value="/file/{path}")
 	public ResponseEntity<Resource> showImage(@PathVariable String path) throws IOException{		
 		logger.info("file name : "+path);
